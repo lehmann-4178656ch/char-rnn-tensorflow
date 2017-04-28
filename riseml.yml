@@ -1,0 +1,16 @@
+deploy:
+  image:
+    name: nvidia/cuda:8.0-cudnn5-runtime
+    install:
+    - apt-get update && apt-get install -y python3-minimal python3-pip
+    - pip3 install -r requirements.txt -r requirements-riseml.txt
+  gpu: yes
+  run:
+    - python3 demo.py
+  input:
+    text: text/plain
+  output:
+    text: text/plain
+  demo:
+    title: Text generation
+description: Demo for "Multi-layer Recurrent Neural Networks (LSTM, RNN) for character-level language models in Python using Tensorflow ".
